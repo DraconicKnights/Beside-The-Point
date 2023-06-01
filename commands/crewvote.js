@@ -35,10 +35,6 @@ module.exports = {
                 .setImage(member.user.displayAvatarURL())
                 .setColor('Aqua')
                 .setDescription(`${member.user.username} dose not have the crew role`)
-                .setDescription(`${member.user.username} dose not have the crew role`)
-                .addFields(
-                    { name: 'Member Roles: ', value: `${interaction.member.roles.map(roles => `${roles}`).join(', ')}`}
-                )
                 .setTimestamp();
     
                 return await interaction.reply({
@@ -67,9 +63,6 @@ module.exports = {
                 .setImage(member.user.displayAvatarURL())
                 .setColor('Aqua')
                 .setDescription(`${member.user.username} already has the crew role`)
-                .addFields(
-                    { name: 'Member Roles: ', value: `${member.roles.name}`}
-                )
                 .setTimestamp();
     
                 return await interaction.reply({
