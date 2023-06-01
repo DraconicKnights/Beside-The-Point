@@ -3,17 +3,17 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits, ActionRowBuilder
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('role')
-    .setDescription('Use to remove a crew members role')
+    .setDescription('Use to remove a members role')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
     .addSubcommand( addSubcommand =>
         addSubcommand.setName("remove")
-        .setDescription("Removes the crew role")
-        .addUserOption(option => option.setName("user").setDescription("Crew member that will lose their role").setRequired(true))
+        .setDescription("Removes the role")
+        .addUserOption(option => option.setName("user").setDescription("Member that will lose their role").setRequired(true))
         .addRoleOption(option => option.setName("role").setDescription("The role that will be removed").setRequired(true)),)
     .addSubcommand( addSubcommand => 
         addSubcommand.setName("add")
-        .setDescription("Adds the crew role")
-        .addUserOption(option => option.setName("user").setDescription("Crew member that will lose their role").setRequired(true))
+        .setDescription("Adds the role")
+        .addUserOption(option => option.setName("user").setDescription("Member that will lose their role").setRequired(true))
         .addRoleOption(option => option.setName("role").setDescription("The role that will be removed").setRequired(true)),),
     async execute(interaction) {
         const member = interaction.options.getMember("user");
