@@ -13,7 +13,7 @@ module.exports = {
                 console.error(`No command matching ${interaction.commandName} was found.`);
                 return;
             }
-    
+            
             console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction Command: ${interaction.commandName} Server: ${guild.name}.`);
     
             try {
