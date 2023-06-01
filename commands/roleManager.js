@@ -2,7 +2,7 @@ const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits, ActionRowBuilder
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('role')
+    .setName('rolemanager')
     .setDescription('Use to remove a members role')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
     .addSubcommand( addSubcommand =>

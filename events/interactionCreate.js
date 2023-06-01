@@ -14,7 +14,7 @@ module.exports = {
                 return;
             }
     
-            console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction Command: ${command.name} Server: ${guild.name}.`);
+            console.log(`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction Command: ${interaction.commandName} Server: ${guild.name}.`);
     
             try {
                 await command.execute(interaction, client);
