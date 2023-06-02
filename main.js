@@ -1,6 +1,7 @@
 const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
+const mysql = require('./database/database');
 require('dotenv/config');
 
 const client = new Client({
@@ -10,6 +11,14 @@ const client = new Client({
         GatewayIntentBits.MessageContent,
         GatewayIntentBits.GuildMembers,
     ],
+})
+
+mysql.connect(function(error) {
+	if (error) {
+		console.log(error)
+	} else {
+		console.log(`${client.user.username} has connected to the Database`)
+	}
 })
 
 const eventsPath = path.join(__dirname, 'events');

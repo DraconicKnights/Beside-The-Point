@@ -5,6 +5,7 @@ module.exports = {
     .setName('rolemanager')
     .setDescription('Use to remove a members role')
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
+    .setDMPermission(false)
     .addSubcommand( addSubcommand =>
         addSubcommand.setName("remove")
         .setDescription("Removes the role")
