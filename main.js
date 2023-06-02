@@ -1,8 +1,8 @@
 const { Client, Events, Collection, GatewayIntentBits } = require('discord.js');
 const fs = require('node:fs');
 const path = require('node:path');
-const mysql = require('./database/database');
 require('dotenv/config');
+const mysql = require('./database/database');
 
 const client = new Client({
     intents: [
@@ -17,7 +17,7 @@ mysql.connect(function(error) {
 	if (error) {
 		console.log(error)
 	} else {
-		console.log(`${client.user.username} has connected to the Database`)
+		console.log(`BTP Bot has connected to the Database`)
 	}
 })
 
