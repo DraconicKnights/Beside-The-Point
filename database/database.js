@@ -7,6 +7,4 @@ module.exports = mysql.createConnection({
     user: process.env.USER,
     password: process.env.PASSWORD,
     database: process.env.DATABASE,
-    port: 3307,
-    socketPath: '/var/run/mysqld/mysqld.sock',
 });
