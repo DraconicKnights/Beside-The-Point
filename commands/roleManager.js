@@ -1,10 +1,11 @@
-const { SlashCommandBuilder, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder, PermissionsBitField } = require('discord.js');
+require('dotenv/config');
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('rolemanager')
     .setDescription('Use to remove a members role')
-    .setDefaultMemberPermissions(PermissionFlagsBits.ManageRoles)
+    .setDefaultMemberPermissions(PermissionsBitField.Administrator)
     .setDMPermission(false)
     .addSubcommand( addSubcommand =>
         addSubcommand.setName("remove")
@@ -24,10 +25,8 @@ module.exports = {
         switch (command) {
             case "remove":
 
-            if (interaction.user.id !== "553621831177863168")  return interaction.reply({content: "You don't have permission to do this", ephemeral: true});
-    
-            // if (member.id !== "664940874551263242")  return interaction.reply({content: "This command only works on Irish", ephemeral: true});
-        
+            if (interaction.user.id !== process.env.DEV_ID | !interaction.member.permissions.has(PermissionsBitField.Administrator) )  return interaction.reply({content: "You don't have permission to do this", ephemeral: true});
+            
             if (!member.roles.cache.has(role.id)) {
                 const embed = new EmbedBuilder()
                 .setTitle(`Role Management ${member.user.username}`)
@@ -50,10 +49,8 @@ module.exports = {
             
             case "add":
 
-            if (interaction.user.id !== "553621831177863168")  return interaction.reply({content: "You don't have permission to do this", ephemeral: true});
-    
-            // if (member.id !== "664940874551263242")  return interaction.reply({content: "This command only works on Irish", ephemeral: true});
-    
+            if (interaction.user.id !== process.env.DEV_ID | !interaction.member.permissions.has(PermissionsBitField.Administrator) )  return interaction.reply({content: "You don't have permission to do this", ephemeral: true});
+        
             if (member.roles.cache.has(role.id)) {
                 const embed = new EmbedBuilder()
                 .setTitle(`Role Management ${member.user.username}`)

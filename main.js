@@ -13,13 +13,13 @@ const client = new Client({
     ],
 })
 
-mysql.connect(function(error) {
-	if (error) {
-		console.log(error)
-	} else {
-		console.log(`BTP Bot has connected to the Database`)
-	}
-})
+// mysql.connect(function(error) {
+// 	if (error) {
+// 		console.log(error)
+// 	} else {
+// 		console.log(`BTP Bot has connected to the Database`)
+// 	}
+// })
 
 const eventsPath = path.join(__dirname, 'events');
 const eventFiles = fs.readdirSync(eventsPath).filter(file => file.endsWith('.js'));

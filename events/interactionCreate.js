@@ -1,4 +1,4 @@
-const { Events, InteractionType, Client } = require('discord.js');
+const { Events, InteractionType } = require('discord.js');
 
 module.exports = {
 	name: Events.InteractionCreate,
