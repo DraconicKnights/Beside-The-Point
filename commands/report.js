@@ -14,7 +14,16 @@ module.exports = {
 
         const username = new TextInputBuilder()
         .setCustomId('usernamereport')
-        .setLabel('The discord users name')
+        .setLabel('Enter their username')
+        .setPlaceholder('Shadower')
+        .setMaxLength(50)
+        .setRequired(true)
+        .setStyle(TextInputStyle.Short);
+
+        const user_id = new TextInputBuilder()
+        .setCustomId('useridreport')
+        .setLabel('Enter their user id')
+        .setPlaceholder('shadower')
         .setMaxLength(50)
         .setRequired(true)
         .setStyle(TextInputStyle.Short);
@@ -28,9 +37,10 @@ module.exports = {
         .setStyle(TextInputStyle.Paragraph);
 
         const firstrow = new ActionRowBuilder().addComponents(username);
-        const secondrow = new ActionRowBuilder().addComponents(reason);
+        const secondrow = new ActionRowBuilder().addComponents(user_id);
+        const thirdtow = new ActionRowBuilder().addComponents(reason);
 
-        modal.addComponents(firstrow, secondrow);
+        modal.addComponents(firstrow, secondrow, thirdtow);
 
         await interaction.showModal(modal);
     }

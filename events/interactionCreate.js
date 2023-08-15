@@ -1,4 +1,5 @@
 const { Events, InteractionType, EmbedBuilder } = require('discord.js');
+const config = require('../config.json');
 
 module.exports = {
 	name: Events.InteractionCreate,
@@ -39,6 +40,7 @@ function ModalFunc(modalId, interaction) {
     switch (modalId) {
         case 'reportmodal':
             const username = interaction.fields.getTextInputValue('usernamereport');
+            const user_id = interaction.fields.getTextInputValue('useridreport');
             const reason = interaction.fields.getTextInputValue('reasonreport');
 
             console.log(interaction.user.username + " Has submited a modal ID: " + interaction.customId);
@@ -46,15 +48,16 @@ function ModalFunc(modalId, interaction) {
 
             const embed = new EmbedBuilder()
             .setTitle('Member Report')
-            .setImage(interaction.user.displayAvatarURL())
+            .setImage(interaction.guild.iconURL())
             .setColor('Blue')
             .setDescription(`${interaction.user.username} has made a report`)
             .addFields(
                 { name: 'Username', value: `${username}`, inline: true },
-                { name: 'Reason', value: `${reason}`, inline: true },
+                { name: 'User ID',  value: `${user_id}`, inline: true},
+                { name: 'Reason', value: `${reason}`, inline: false },
             )
 
-            const channelid = '';
+            const channelid = config.reportchannelid;
 
             const channel = interaction.guild.channels.cache.get(channelid);
 
