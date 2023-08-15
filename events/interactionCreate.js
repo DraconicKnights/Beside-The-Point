@@ -26,7 +26,7 @@ module.exports = {
                 break;
 
             case InteractionType.ModalSubmit:
-                ModalFunc(interaction.customId);
+                ModalFunc(interaction.customId, interaction);
                 break;
         }
 
@@ -35,7 +35,7 @@ module.exports = {
 }
 
 
-function ModalFunc(modalId) {
+function ModalFunc(modalId, interaction) {
     switch (modalId) {
         case 'reportmodal':
             const username = interaction.fields.getTextInputValue('usernamereport');
