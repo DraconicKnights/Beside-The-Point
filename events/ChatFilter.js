@@ -17,7 +17,7 @@ module.exports = {
             const content = message.content.toLowerCase();
             if (filter.some((word) => content.includes(word)) && message.author.id !== process.env.CLIENTID) {
                 await message.reply('Please refrain from using inappropriate language.');
-                console.log("Member: " + message.author.name + " Triggered the filter in Channel: " + message.channel.name + " Content: " + message.content);
+                console.log("Member: " + message.author.username + " Triggered the filter in Channel: " + message.channel.name + " Content: " + message.content);
                 await message.delete();
             }
           });

@@ -11,7 +11,6 @@ module.exports = {
         .setCustomId('reportmodal')
         .setTitle('Report User')
 
-
         const username = new TextInputBuilder()
         .setCustomId('usernamereport')
         .setLabel('Enter their username')
